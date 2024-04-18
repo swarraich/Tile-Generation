@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TileGenerator;
 public class GenerateTiles_Sprite : MonoBehaviour
 {
     public GameObject tilePrefab; // Assign your tile prefab in the inspector
