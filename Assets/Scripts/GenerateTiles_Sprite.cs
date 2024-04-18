@@ -33,7 +33,6 @@ public class GenerateTiles_Sprite : MonoBehaviour
         {
             for (int col = 0; col < _GeneralVariables.cols; col++)
             {
-                tileCounter++;
                 // Instantiate tile prefab
                 GameObject tile = TileFactory.CreateTile(0, transform, _GeneralVariables);//Instantiate(generalVariables.tile, transform);
                 // Set tile position
@@ -45,7 +44,7 @@ public class GenerateTiles_Sprite : MonoBehaviour
                 tile.GetComponent<Tile>()._TileId = property.TileType;
                 tile.GetComponent<Tile>()._Index = tileCounter;
                 tile.name = tileCounter.ToString();
-
+                tileCounter++;
                 tile.SetActive(true);
             }
         }
