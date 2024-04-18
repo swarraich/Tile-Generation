@@ -16,10 +16,11 @@ namespace TileGenerator
     {
         public int TileType { get; set; }
     }
-    public class json_reader : MonoBehaviour
+    public class Json_reader : MonoBehaviour
     {
         public GenerateTiles tileGenerator;
         public GenerateTiles_Sprite tileGenerator_Sprite;
+        public GeneralVariables generalVariables;
         //[System.Serializable]
 
 
@@ -39,8 +40,8 @@ namespace TileGenerator
                 return;
             }
             // Access your terrain data
-            int rowCount, coloumn = 0;
-            rowCount = 0;
+            generalVariables.rows = terrainGrid.TerrainGrid.Length; // Number of rows
+            generalVariables.cols = terrainGrid.TerrainGrid[0].Length;
             //foreach (var row in terrainGrid.TerrainGrid)
             //{
             //    rowCount++;

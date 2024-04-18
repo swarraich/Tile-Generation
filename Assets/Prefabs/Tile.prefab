@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1575405440488703037}
   - component: {fileID: -5382564603350650052}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Tile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -101,17 +101,13 @@ MonoBehaviour:
   index: 0
   tileId: 0
   isOccupied: 0
-  images:
-  - {fileID: 21300000, guid: c66493c78545ad240aad336ee70a6edb, type: 3}
-  - {fileID: 21300000, guid: 9b67039ef43306f46bee220fd3962cdf, type: 3}
-  - {fileID: 21300000, guid: fa10c8c3ad9334846b326c63bf412898, type: 3}
-  - {fileID: 21300000, guid: 973dc479a8e77c04ca534d79f421697e, type: 3}
   rightNeighbour: {fileID: 0}
   leftNeighbour: {fileID: 0}
   bottomNeighbour: {fileID: 0}
   topNeighbour: {fileID: 0}
   horizontalTable: {fileID: 737792236016152535, guid: bc3a4769813de594f8e4e0b4f6d68969, type: 3}
   verticleTable: {fileID: 737792236016152535, guid: e53e14d2de142914b8de2bd8846695c1, type: 3}
+  generalVariables: {fileID: 11400000, guid: 0d482178ceca9bb4fa116ddef3a73feb, type: 2}
 --- !u!61 &-5382564603350650052
 BoxCollider2D:
   m_ObjectHideFlags: 0

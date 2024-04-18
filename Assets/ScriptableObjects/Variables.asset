@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb635d0a0a085ce40ae7287c2730f00a, type: 3}
+  m_Name: Variables
+  m_EditorClassIdentifier: 
+  rows: 16
+  cols: 16
+  spacing: 0
+  tileThatCanSpawn: 3
+  allTiles:
+  - {fileID: 21300000, guid: c66493c78545ad240aad336ee70a6edb, type: 3}
+  - {fileID: 21300000, guid: 9b67039ef43306f46bee220fd3962cdf, type: 3}
+  - {fileID: 21300000, guid: fa10c8c3ad9334846b326c63bf412898, type: 3}
+  - {fileID: 21300000, guid: 973dc479a8e77c04ca534d79f421697e, type: 3}
+  tile: {fileID: 208053588300936569, guid: ba708261a7e60d242ab7f859748cf2c4, type: 3}
+  horizontalTable: {fileID: 737792236016152535, guid: bc3a4769813de594f8e4e0b4f6d68969, type: 3}
+  verticleTable: {fileID: 737792236016152535, guid: e53e14d2de142914b8de2bd8846695c1, type: 3}

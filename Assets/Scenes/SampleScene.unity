@@ -154,9 +154,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60057c7f91e21274f8a9df75a6cbb3ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  filePath: D:\Free Lancing\Tiles\Frontend_isometric_exercise_assets\data.json
   tileGenerator: {fileID: 1806899207}
   tileGenerator_Sprite: {fileID: 341266655}
+  generalVariables: {fileID: 0}
 --- !u!81 &165644675
 AudioListener:
   m_ObjectHideFlags: 0
@@ -264,6 +264,7 @@ MonoBehaviour:
   rows: 16
   columns: 16
   spacing: 0
+  generalVariables: {fileID: 11400000, guid: 0d482178ceca9bb4fa116ddef3a73feb, type: 2}
 --- !u!4 &341266656
 Transform:
   m_ObjectHideFlags: 0
@@ -384,9 +385,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60057c7f91e21274f8a9df75a6cbb3ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  filePath: D:\GitProjects\data.json
   tileGenerator: {fileID: 1806899207}
   tileGenerator_Sprite: {fileID: 341266655}
+  generalVariables: {fileID: 11400000, guid: 0d482178ceca9bb4fa116ddef3a73feb, type: 2}
 --- !u!1 &1346109166
 GameObject:
   m_ObjectHideFlags: 0
