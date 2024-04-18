@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TileGenerator;
 using UnityEngine;
 using UnityEngine.UI;
 public class Tile : MonoBehaviour
@@ -32,28 +33,28 @@ public class Tile : MonoBehaviour
                 {
                     isOccupied = true;
                     rightNeighbour.isOccupied = true;
-                    GameObject newTable = Instantiate(generalVariables.horizontalTable, transform);
+                    GameObject newTable = TileFactory.CreateTile(1, transform, generalVariables);
                     newTable.transform.localPosition = new Vector3(0 + GetComponent<SpriteRenderer>().bounds.size.x/2, 0, 0);
                 }
                 else if (leftNeighbour != null && !leftNeighbour.isOccupied && leftNeighbour.tileId == generalVariables.tileThatCanSpawn)
                 {
                     isOccupied = true;
                     leftNeighbour.isOccupied = true;
-                    GameObject newTable = Instantiate(generalVariables.horizontalTable, transform);
+                    GameObject newTable = TileFactory.CreateTile(1, transform, generalVariables);
                     newTable.transform.localPosition = new Vector3(0 - GetComponent<SpriteRenderer>().bounds.size.x/2, 0, 0);
                 }
                 else if (bottomNeighbour != null && !bottomNeighbour.isOccupied && bottomNeighbour.tileId == generalVariables.tileThatCanSpawn)
                 {
                     isOccupied = true;
                     bottomNeighbour.isOccupied = true;
-                    GameObject newTable = Instantiate(generalVariables.verticleTable, transform);
+                    GameObject newTable = TileFactory.CreateTile(2, transform, generalVariables);
                     newTable.transform.localPosition = new Vector3(0 , 0 - GetComponent<SpriteRenderer>().bounds.size.y / 2, 0);
                 }
                 else if (topNeighbour != null && !topNeighbour.isOccupied && topNeighbour.tileId == generalVariables.tileThatCanSpawn)
                 {
                     isOccupied = true;
                     topNeighbour.isOccupied = true;
-                    GameObject newTable = Instantiate(generalVariables.verticleTable, transform);
+                    GameObject newTable = TileFactory.CreateTile(2, transform, generalVariables);
                     newTable.transform.localPosition = new Vector3(0 , 0+ GetComponent<SpriteRenderer>().bounds.size.y / 2, 0);
 
                 }
@@ -63,7 +64,6 @@ public class Tile : MonoBehaviour
 
     private void OnMouseDown()
     {
-        //c print("My name is: " + transform.name);
         Clicked();
     }
 

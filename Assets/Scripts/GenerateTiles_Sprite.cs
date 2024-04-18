@@ -21,7 +21,7 @@ public class GenerateTiles_Sprite : MonoBehaviour
             {
                 tileCounter++;
                 // Instantiate tile prefab
-                GameObject tile = Instantiate(generalVariables.tile, transform);
+                GameObject tile = TileFactory.CreateTile(0, transform, generalVariables);//Instantiate(generalVariables.tile, transform);
                 // Set tile position
                 Vector2 tilePosition = new Vector2(startPosition.x + col * (tileSizeX +generalVariables.spacing), startPosition.y - row * (tileSizeY + generalVariables.spacing));
                 tile.transform.position = tilePosition;
