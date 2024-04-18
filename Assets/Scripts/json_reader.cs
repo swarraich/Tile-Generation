@@ -5,7 +5,7 @@ using System.IO;
 using Newtonsoft.Json;
 using Unity.VisualScripting;
 
-namespace TileGenerator
+namespace TileGeneration
 {
     public class JsonData
     {
@@ -18,9 +18,9 @@ namespace TileGenerator
     }
     public class Json_reader : MonoBehaviour
     {
-        public GenerateTiles tileGenerator;
-        public GenerateTiles_Sprite tileGenerator_Sprite;
-        public GeneralVariables generalVariables;
+        public GenerateTiles _TileGenerator;
+        public GenerateTiles_Sprite _TileGenerator_Sprite;
+        public GeneralVariables _GeneralVariables;
         //[System.Serializable]
 
 
@@ -29,7 +29,6 @@ namespace TileGenerator
 
         void Start()
         {
-            //  print(2 % 16);
             // Load JSON file from path
             string json = File.ReadAllText(Application.dataPath + "/Resources/data.json");
             // Deserialize JSON into TerrainGrid object
@@ -40,22 +39,13 @@ namespace TileGenerator
                 return;
             }
             // Access your terrain data
-            generalVariables.rows = terrainGrid.TerrainGrid.Length; // Number of rows
-            generalVariables.cols = terrainGrid.TerrainGrid[0].Length;
-            //foreach (var row in terrainGrid.TerrainGrid)
-            //{
-            //    rowCount++;
-            //    coloumn = 0;
-            //    foreach (var tile in row)
-            //    {
-            //        coloumn++;
-            //        Debug.Log(tile.TileType);
-            //    }   
-            //}
+            _GeneralVariables.rows = terrainGrid.TerrainGrid.Length; // Number of rows
+            _GeneralVariables.cols = terrainGrid.TerrainGrid[0].Length;
+           //for generating tiles in UI canvas
             //  tileGenerator.Generate(terrainGrid);
-            tileGenerator_Sprite.Generate(terrainGrid);
+            //for generating tiles in spriterendrer
+            _TileGenerator_Sprite.Generate(terrainGrid);
 
-            //   print("Rows: " + rowCount + " Coloumns: " + coloumn);
 
         }
     }

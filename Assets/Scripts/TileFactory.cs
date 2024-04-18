@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace TileGenerator
+namespace TileGeneration
 {
     public class TileFactory
     {
@@ -10,11 +10,11 @@ namespace TileGenerator
             switch (spawwnType)
             {
                 case 0:
-                    return InstantiateTile(generalVariables.tile, parent);
+                    return InstantiateObject(generalVariables.tile, parent);
                 case 1:
-                    return InstantiateTile(generalVariables.horizontalTable, parent);
+                    return InstantiateObject(generalVariables.horizontalTable, parent);
                 case 2:
-                    return InstantiateTile(generalVariables.verticleTable, parent);
+                    return InstantiateObject(generalVariables.verticleTable, parent);
                 // Add cases for other tile types as needed
                 default:
                     Debug.LogWarning("Unknown tile type: " + spawwnType);
@@ -22,7 +22,7 @@ namespace TileGenerator
             }
         }
 
-        private static GameObject InstantiateTile(GameObject prefab, Transform parent)
+        private static GameObject InstantiateObject(GameObject prefab, Transform parent)
         {
             return GameObject.Instantiate(prefab, parent);
         }

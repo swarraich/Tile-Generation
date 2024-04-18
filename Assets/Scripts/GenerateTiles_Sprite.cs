@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TileGenerator;
+using TileGeneration;
 public class GenerateTiles_Sprite : MonoBehaviour
 {
    
@@ -28,8 +28,8 @@ public class GenerateTiles_Sprite : MonoBehaviour
 
                 // Set tile properties
                 TileProperty property = data.TerrainGrid[row][col];
-                tile.GetComponent<Tile>().tileId = property.TileType;
-                tile.GetComponent<Tile>().index = tileCounter;
+                tile.GetComponent<Tile>()._TileId = property.TileType;
+                tile.GetComponent<Tile>()._Index = tileCounter;
                 tile.name = tileCounter.ToString();
 
                 tile.SetActive(true);

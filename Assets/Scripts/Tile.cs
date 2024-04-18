@@ -1,14 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
-using TileGenerator;
+using TileGeneration;
 using UnityEngine;
 using UnityEngine.UI;
+
+public enum TileState
+{
+    _IsVacant,
+    _IsOccupied
+}
+
 public class Tile : MonoBehaviour
 {
-   public int index;
-    public int tileId;
+   public int _Index;
+    public int _TileId;
     [HideInInspector]
     public bool isOccupied;
+    public TileState _TileState;
     [HideInInspector]
    public Tile rightNeighbour, leftNeighbour, bottomNeighbour, topNeighbour;
     public GeneralVariables generalVariables;
@@ -16,44 +24,44 @@ public class Tile : MonoBehaviour
     private void OnEnable()
     {
         //GetComponent<Image>().sprite = images[tileId];
-        GetComponent<SpriteRenderer>().sprite = generalVariables.allTiles[tileId];
+        GetComponent<SpriteRenderer>().sprite = generalVariables.allTiles[_TileId];
 
         Invoke(nameof(FindNeighbours), 0.5f);
     }
 
     public void Clicked()
     {
-        if (!isOccupied)
+        if (_TileState==TileState._IsVacant)
         {
-            if (tileId == generalVariables.tileThatCanSpawn)
+            if (_TileId == generalVariables.tileThatCanSpawn)
             {
                 //spwan table
                 //check availbility
-                if (rightNeighbour != null && !rightNeighbour.isOccupied && rightNeighbour.tileId== generalVariables.tileThatCanSpawn)
+                if (rightNeighbour != null && rightNeighbour._TileState == TileState._IsVacant && rightNeighbour._TileId== generalVariables.tileThatCanSpawn)
                 {
-                    isOccupied = true;
-                    rightNeighbour.isOccupied = true;
+                    _TileState = TileState._IsOccupied;
+                    rightNeighbour._TileState = TileState._IsOccupied;
                     GameObject newTable = TileFactory.CreateTile(1, transform, generalVariables);
                     newTable.transform.localPosition = new Vector3(0 + GetComponent<SpriteRenderer>().bounds.size.x/2, 0, 0);
                 }
-                else if (leftNeighbour != null && !leftNeighbour.isOccupied && leftNeighbour.tileId == generalVariables.tileThatCanSpawn)
+                else if (leftNeighbour != null && leftNeighbour._TileState == TileState._IsVacant && leftNeighbour._TileId == generalVariables.tileThatCanSpawn)
                 {
-                    isOccupied = true;
-                    leftNeighbour.isOccupied = true;
+                    _TileState = TileState._IsOccupied;
+                    leftNeighbour._TileState = TileState._IsOccupied;
                     GameObject newTable = TileFactory.CreateTile(1, transform, generalVariables);
                     newTable.transform.localPosition = new Vector3(0 - GetComponent<SpriteRenderer>().bounds.size.x/2, 0, 0);
                 }
-                else if (bottomNeighbour != null && !bottomNeighbour.isOccupied && bottomNeighbour.tileId == generalVariables.tileThatCanSpawn)
+                else if (bottomNeighbour != null && bottomNeighbour._TileState == TileState._IsVacant && bottomNeighbour._TileId == generalVariables.tileThatCanSpawn)
                 {
-                    isOccupied = true;
-                    bottomNeighbour.isOccupied = true;
+                    _TileState = TileState._IsOccupied;
+                    bottomNeighbour._TileState = TileState._IsOccupied;
                     GameObject newTable = TileFactory.CreateTile(2, transform, generalVariables);
                     newTable.transform.localPosition = new Vector3(0 , 0 - GetComponent<SpriteRenderer>().bounds.size.y / 2, 0);
                 }
-                else if (topNeighbour != null && !topNeighbour.isOccupied && topNeighbour.tileId == generalVariables.tileThatCanSpawn)
+                else if (topNeighbour != null && topNeighbour._TileState == TileState._IsVacant && topNeighbour._TileId == generalVariables.tileThatCanSpawn)
                 {
-                    isOccupied = true;
-                    topNeighbour.isOccupied = true;
+                    _TileState = TileState._IsOccupied;
+                    topNeighbour._TileState = TileState._IsOccupied;
                     GameObject newTable = TileFactory.CreateTile(2, transform, generalVariables);
                     newTable.transform.localPosition = new Vector3(0 , 0+ GetComponent<SpriteRenderer>().bounds.size.y / 2, 0);
 
@@ -73,24 +81,24 @@ public class Tile : MonoBehaviour
     void FindNeighbours()
     {
         //find right neighbour
-        if (index % generalVariables.cols != 0) {
-            rightNeighbour = transform.parent.GetChild(index).GetComponent<Tile>();
+        if (_Index % generalVariables.cols != 0) {
+            rightNeighbour = transform.parent.GetChild(_Index).GetComponent<Tile>();
         }
         //find left neighbour
-        if (index % generalVariables.cols!= 1)
+        if (_Index % generalVariables.cols!= 1)
         {
-            leftNeighbour = transform.parent.GetChild(index - 2).GetComponent<Tile>();
+            leftNeighbour = transform.parent.GetChild(_Index - 2).GetComponent<Tile>();
         }
 
         //find bottom neighbour
-        if (index <= generalVariables.cols*(generalVariables.rows-1))
+        if (_Index <= generalVariables.cols*(generalVariables.rows-1))
         {
-            bottomNeighbour = transform.parent.GetChild(index + 15).GetComponent<Tile>();
+            bottomNeighbour = transform.parent.GetChild(_Index + 15).GetComponent<Tile>();
         }
         //find top neighbour
-        if (index > generalVariables.cols)
+        if (_Index > generalVariables.cols)
         {
-            topNeighbour = transform.parent.GetChild(index-17).GetComponent<Tile>();
+            topNeighbour = transform.parent.GetChild(_Index-17).GetComponent<Tile>();
         }
 
         

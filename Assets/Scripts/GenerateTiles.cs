@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TileGenerator;
+using TileGeneration;
 public class GenerateTiles : MonoBehaviour
 {
     public GameObject tilePrefab; // Assign your tile prefab in the inspector
@@ -35,8 +35,8 @@ public class GenerateTiles : MonoBehaviour
                 // Set tile position and size
                 RectTransform tileTransform = tile.GetComponent<RectTransform>();
                 TileProperty property = data.TerrainGrid[row][col];
-                tile.GetComponent<Tile>().tileId = property.TileType;
-                tile.GetComponent<Tile>().index = tileCounter;
+                tile.GetComponent<Tile>()._TileId = property.TileType;
+                tile.GetComponent<Tile>()._Index = tileCounter;
                 tile.name = tileCounter.ToString();
                 tileTransform.sizeDelta = new Vector2(tileSizeX, tileSizeY);
                 tileTransform.anchoredPosition = new Vector2(startPosition.x + col * (tileSizeX + spacing), startPosition.y - row * (tileSizeY + spacing));
