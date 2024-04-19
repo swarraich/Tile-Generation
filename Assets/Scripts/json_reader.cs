@@ -34,8 +34,9 @@ namespace TileGeneration
             //for error handling
             try
             {
-                // Load JSON file from path
-                string json = File.ReadAllText(Application.dataPath + "/Resources/data.json");
+                // Load JSON file from from resources as text asset
+                TextAsset jsonFile = Resources.Load<TextAsset>("data");
+                string json = jsonFile.text;
                 // Deserialize JSON into TerrainGrid object
                 JsonData terrainGrid = JsonConvert.DeserializeObject<JsonData>(json);
                 if (terrainGrid == null || terrainGrid.TerrainGrid == null)
