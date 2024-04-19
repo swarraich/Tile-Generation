@@ -7,7 +7,7 @@ using UnityEngine;
 public class GeneralVariables : ScriptableObject
 {
     public int rows, cols,spacing,tileThatCanSpawn;
-    public Sprite[] allTiles;
+    public Sprite[] allTilesImages;
     public GameObject tile;
     public GameObject horizontalTable, verticleTable;
 }
