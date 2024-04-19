@@ -43,8 +43,8 @@ public class GenerateTiles_Sprite : MonoBehaviour
                 TileProperty property = data.TerrainGrid[row][col];
                 tile.GetComponent<Tile>()._TileId = property.TileType;
                 tile.GetComponent<Tile>()._Index = tileCounter;
-                tile.name = tileCounter.ToString();
                 tileCounter++;
+                tile.name = tileCounter.ToString();
                 tile.SetActive(true);
             }
         }

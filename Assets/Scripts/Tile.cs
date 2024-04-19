@@ -81,24 +81,24 @@ public class Tile : MonoBehaviour
     void FindNeighbours()
     {
         //find right neighbour
-        if (_Index % generalVariables.cols != 0) {
+        if ((_Index+1) % generalVariables.cols != 0) {
             rightNeighbour = transform.parent.GetChild(_Index+1).GetComponent<Tile>();
         }
         //find left neighbour
-        if (_Index % generalVariables.cols!= 1)
+        if ((_Index+1) % generalVariables.cols!= 1)
         {
             leftNeighbour = transform.parent.GetChild(_Index - 1).GetComponent<Tile>();
         }
 
         //find bottom neighbour
-        if (_Index <= generalVariables.cols*(generalVariables.rows-1))
+        if ((_Index+1) <= generalVariables.cols*(generalVariables.rows-1))
         {
-            bottomNeighbour = transform.parent.GetChild(_Index + 16).GetComponent<Tile>();
+            bottomNeighbour = transform.parent.GetChild(_Index + generalVariables.cols).GetComponent<Tile>();
         }
         //find top neighbour
-        if (_Index > generalVariables.cols)
+        if (((_Index + 1)) > generalVariables.cols)
         {
-            topNeighbour = transform.parent.GetChild(_Index-16).GetComponent<Tile>();
+            topNeighbour = transform.parent.GetChild(_Index-generalVariables.cols).GetComponent<Tile>();
         }
 
         
